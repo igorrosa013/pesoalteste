@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily&Quest - Login e Cadastro</title>
+    <link rel="stylesheet" href="styleLogin.css">
+</head>
+<body>
+
+    <div class="auth-wrapper">
+        
+        <div class="auth-banner">
+            <div class="logo-container">
+               <img src="../Imgs/LogoDaily_Quests.png" alt="Logo Daily&Quest">
+            </div>
+            <h1>Transforme tarefas<br>em conquistas!</h1>
+            <p>Gamifique sua rotina, complete<br>desafios e evolua!</p>
+        </div>
+
+        <div class="auth-content">
+            
+            <div class="project-brand">Daily&Quest</div>
+            
+            <div id="login-section" class="form-section">
+                <div class="form-header">
+                    <h2>Entrar na sua conta</h2>
+                    <p>Bem-vindo(a) de volta!</p>
+                </div>
+
+                <form onsubmit="handleAuth(event, 'login')">
+                    <div class="form-group">
+                        <label for="login-email">E-mail</label>
+                        <div class="input-wrapper">
+                            <svg class="input-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            <input type="email" id="login-email" class="form-input" placeholder="Digite seu e-mail" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="login-senha">Senha</label>
+                        <div class="input-wrapper">
+                            <svg class="input-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                            <input type="password" id="login-senha" class="form-input" placeholder="Digite sua senha" required>
+                            <svg class="eye-icon" onclick="togglePasswordVisibility('login-senha')" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                        </div>
+                    </div>
+
+                    <div class="auth-actions">
+                        <label>
+                            <input type="checkbox" id="remember-me"> Lembrar de mim
+                        </label>
+                        <a href="#" onclick="switchForm('forgot'); return false;">Esqueci minha senha</a>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Entrar</button>
+                </form>
+
+                <div class="divider">ou</div>
+
+                <div class="auth-footer">
+                    Não tem uma conta? <button type="button" onclick="switchForm('register')">Criar conta</button>
+                </div>
+            </div>
+
+            <div id="register-section" class="form-section hidden">
+                <div class="form-header">
+                    <h2>Criar conta</h2>
+                    <p>Vamos começar!</p>
+                </div>
+
+                <form onsubmit="handleAuth(event, 'register')">
+                    <div class="form-group">
+                        <label for="reg-nome">Nome</label>
+                        <div class="input-wrapper">
+                            <svg class="input-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                            <input type="text" id="reg-nome" class="form-input" placeholder="Digite seu nome" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reg-sobrenome">Sobrenome</label>
+                        <div class="input-wrapper">
+                            <svg class="input-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                            <input type="text" id="reg-sobrenome" class="form-input" placeholder="Digite seu sobrenome" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reg-nascimento">Data de nascimento</label>
+                        <div class="input-wrapper">
+                            <svg class="input-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                            <input type="text" id="reg-nascimento" class="form-input" placeholder="dd/mm/aaaa" maxlength="10" inputmode="numeric" pattern="\d{2}/\d{2}/\d{4}" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reg-email">E-mail</label>
+                        <div class="input-wrapper">
+                            <svg class="input-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            <input type="email" id="reg-email" class="form-input" placeholder="Digite seu e-mail" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reg-senha">Senha</label>
+                        <div class="input-wrapper">
+                            <svg class="input-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                            <input type="password" id="reg-senha" class="form-input" placeholder="Crie uma senha" required>
+                            <svg class="eye-icon" onclick="togglePasswordVisibility('reg-senha')" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Criar conta</button>
+                </form>
+
+                <div class="divider">ou</div>
+
+                <div class="auth-footer">
+                    Já tem uma conta? <button type="button" onclick="switchForm('login')">Entrar</button>
+                </div>
+            </div>
+
+            <div id="forgot-section" class="form-section hidden">
+                <div class="form-header">
+                    <h2>Recuperar senha</h2>
+                    <p>Digite o e-mail usado no cadastro.</p>
+                </div>
+
+                <form onsubmit="handleAuth(event, 'forgot')">
+                    <div class="form-group">
+                        <label for="forgot-email">E-mail</label>
+                        <div class="input-wrapper">
+                            <svg class="input-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            <input type="email" id="forgot-email" class="form-input" placeholder="Digite seu e-mail" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Enviar recuperação</button>
+                </form>
+
+                <div class="divider">ou</div>
+
+                <div class="auth-footer">
+                    Lembrou sua senha? <button type="button" onclick="switchForm('login')">Entrar</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <script src="scriptLogin.js"></script>
+</body>
+</html>

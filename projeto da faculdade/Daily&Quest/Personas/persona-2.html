@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Persona 2 - Marina Albuquerque</title>
+    <style>
+        /* RESET E FONTES */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #e5e7eb;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* ESTRUTURA DOS CARDS */
+        .card {
+            max-width: 1100px;
+            width: 100%;
+            background-color: #ffffff;
+            border-radius: 1rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            display: flex;
+            overflow: hidden;
+        }
+
+        /* Colunas */
+        .left-col {
+            width: 40%;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .right-col {
+            width: 60%;
+            padding: 3rem;
+            background-color: #ffffff;
+        }
+
+        /* Cores de Fundo Personalizadas */
+        .bg-pink { background-color: #FCE4EC; }
+
+        /* ELEMENTOS INTERNOS (ESQUERDA) */
+        .profile-img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            border-radius: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .name-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+        }
+
+        .info-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .pill {
+            border: 1px solid #000000;
+            border-radius: 9999px;
+            padding: 0.5rem 1.25rem;
+            font-size: 1rem;
+            color: #000000;
+        }
+
+        .pill strong { font-weight: 700; }
+        .pill-full { width: 100%; }
+
+        .bio-text {
+            color: #111827;
+            line-height: 1.6;
+            font-size: 1.125rem;
+        }
+
+        /* ELEMENTOS INTERNOS (DIREITA) */
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 400;
+            color: #000000;
+            margin-bottom: 2.5rem;
+        }
+
+        .detail-block {
+            background-color: #F4F5F0;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .block-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 1rem;
+        }
+
+        .detail-list {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            color: #1f2937;
+            line-height: 1.5;
+        }
+
+        .detail-list li { margin-bottom: 0.5rem; }
+
+        .list-label {
+            font-weight: 400;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+            margin-top: 1rem;
+            display: block;
+        }
+
+        /* RESPONSIVIDADE (Mobile) */
+        @media (max-width: 768px) {
+            .card { flex-direction: column; }
+            .left-col, .right-col { width: 100%; padding: 2rem; }
+            .name-title { font-size: 2.5rem; }
+            .profile-img { height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="left-col bg-pink">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=600&auto=format&fit=crop" alt="Foto de Marina" class="profile-img">
+            
+            <h1 class="name-title"> Marina Albuquerque</h1>
+            
+            <div class="info-pills">
+                <div class="pill"><strong>Idade:</strong> 29</div>
+                <div class="pill"><strong>Gênero:</strong> Feminino</div>
+                <div class="pill pill-full"><strong>Local:</strong> Florianópolis, SC</div>
+                <div class="pill pill-full"><strong>Ocupação:</strong> Designer Freelancer</div>
+            </div>
+
+            <p class="bio-text">
+                Marina trabalha de casa e faz seus próprios horários. Ela tem muita energia criativa, mas frequentemente se perde em múltiplas abas e projetos iniciados. Ela busca uma forma de estruturar sua rotina, lembrando-se de hábitos saudáveis, sem sentir que perdeu a liberdade criativa.
+            </p>
+        </div>
+
+        <div class="right-col">
+            <h2 class="section-title">Background</h2>
+
+            <div class="detail-block">
+                <h3 class="block-title">Características Pessoais</h3>
+                <ul class="detail-list">
+                    <li>Extremamente visual e artística</li>
+                    <li>Comunicativa e empática com clientes</li>
+                    <li>Tem dificuldade em manter rotinas rígidas</li>
+                    <li>Esquece com facilidade tarefas burocráticas</li>
+                </ul>
+            </div>
+
+            <div class="detail-block">
+                <h3 class="block-title">Hobbies e Interesses</h3>
+                <ul class="detail-list">
+                    <li>Pintura em aquarela tradicional</li>
+                    <li>Cuidar de suas plantas (jardinagem urbana)</li>
+                    <li>Passear com seus cachorros na praia</li>
+                    <li>Frequentar feiras de arte independente</li>
+                </ul>
+            </div>
+
+            <div class="detail-block">
+                <h3 class="block-title">Objetivos</h3>
+                <span class="list-label">Objetivos Principais:</span>
+                <ul class="detail-list">
+                    <li>Entregar os projetos dos clientes no prazo</li>
+                    <li>Criar o hábito de beber água e alongar-se</li>
+                    <li>Separar melhor tempo de trabalho e lazer</li>
+                </ul>
+                <span class="list-label">Motivações:</span>
+                <ul class="detail-list">
+                    <li>Crescimento na carreira e aumento de renda</li>
+                    <li>Paz mental para focar na arte</li>
+                </ul>
+            </div>
+
+            <div class="detail-block">
+                <h3 class="block-title">Desafios</h3>
+                <span class="list-label">Principais Dores:</span>
+                <ul class="detail-list">
+                    <li>Gerenciar diferentes clientes gera confusão</li>
+                    <li>Esquecer de enviar notas fiscais</li>
+                </ul>
+                <span class="list-label">Frustrações:</span>
+                <ul class="detail-list">
+                    <li>Burnout por trabalhar horas seguidas sem pausa</li>
+                    <li>Agendas físicas ficam bagunçadas rapidamente</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,239 @@
+/* =========================================
+   CORREÇÃO DO TAMANHO DO LOGO E ALINHAMENTO
+   ========================================= */
+.nav-logo { 
+    width: 60px !important; /* Espaço reduzido para puxar os botões */
+    height: 70px !important; /* Usa a mesma altura da sua barra (top-nav) */
+    display: flex; 
+    align-items: center; 
+    justify-content: flex-start;
+    overflow: hidden; /* Corta a sobra transparente da imagem que sair dessa caixa */
+}
+
+.nav-logo img { 
+    height: 100px !important; /* Dobra o tamanho real do arquivo dentro da caixa */
+    max-width: none !important; /* Impede que o CSS esprema a imagem */
+    object-fit: cover !important; 
+    margin-left: -60px !important;
+}
+
+/* Aproxima os botões do logo e entre si */
+.nav-left { 
+    display: flex; 
+    align-items: center; 
+    gap: 0.5rem; 
+}
+
+.nav-links { 
+    display: flex; 
+    gap: 1rem; 
+}
+
+/* =========================================
+   ESTILOS GLOBAIS Notificações e Perfil
+   ========================================= */
+
+.global-dropdown {
+    position: absolute;
+    top: 70px;
+    right: 2rem;
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    display: none;
+    flex-direction: column;
+    z-index: 100;
+    width: 320px;
+    overflow: hidden;
+}
+
+.global-dropdown.show { 
+    display: flex; 
+}
+
+/* Menu de Perfil Específico */
+#dropdown-usuario-menu { 
+    width: 200px; 
+    right: 2rem; 
+}
+
+.dropdown-header {
+    background-color: #f8fafc;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dropdown-header h4 { 
+    font-size: 1rem; 
+    color: var(--text-main); 
+    margin: 0; 
+}
+
+.dropdown-actions button {
+    background: none;
+    border: none;
+    color: var(--nav-bg);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: 0.5rem;
+}
+
+.dropdown-actions button:hover { 
+    text-decoration: underline; 
+}
+
+.dropdown-list {
+    max-height: 300px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.notif-item {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.85rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    background-color: #eff6ff; 
+}
+
+.notif-item.lida { 
+    background-color: white; 
+    color: var(--text-muted); 
+}
+
+.notif-item:last-child { 
+    border-bottom: none; 
+}
+
+.notif-date { 
+    font-size: 0.7rem; 
+    color: var(--text-muted); 
+}
+
+.notif-empty { 
+    padding: 2rem 1rem; 
+    text-align: center; 
+    color: var(--text-muted); 
+    font-size: 0.9rem; 
+}
+
+/* =========================================
+   ESTILOS DE MODAIS Global
+   ========================================= */
+.modal-overlay { 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100vw; 
+    height: 100vh; 
+    background-color: rgba(0, 0, 0, 0.6); 
+    display: none; 
+    align-items: center; 
+    justify-content: center; 
+    z-index: 1000; 
+}
+
+.modal-overlay.show { 
+    display: flex; 
+}
+
+.modal-container { 
+    width: 100%; 
+    max-width: 500px; 
+    background-color: white; 
+    border-radius: 0.5rem; 
+    overflow: hidden; 
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2); 
+    display: flex; 
+    flex-direction: column; 
+}
+
+.modal-header { 
+    background-color: #6366f1; 
+    color: white; 
+    padding: 1rem 1.5rem; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+.modal-header h3 { 
+    font-size: 1.2rem; 
+    margin: 0; 
+}
+
+.modal-header-actions { 
+    display: flex; 
+    gap: 1rem; 
+    align-items: center; 
+    font-size: 0.9rem;
+}
+
+.modal-header-actions span { 
+    cursor: pointer; 
+    opacity: 0.8; 
+    transition: opacity 0.2s; 
+}
+
+.modal-header-actions span:hover { 
+    opacity: 1; 
+}
+
+.modal-body { 
+    padding: 1.5rem; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 1.25rem; 
+    background-color: #f8fafc; 
+}
+
+.modal-group label { 
+    display: block; 
+    font-weight: 600; 
+    margin-bottom: 0.5rem; 
+    font-size: 0.9rem;
+}
+
+.modal-input, .modal-textarea, .modal-select { 
+    width: 100%; 
+    padding: 0.75rem; 
+    border: 1px solid var(--border-color); 
+    border-radius: 0.5rem; 
+    outline: none; 
+    font-size: 0.95rem; 
+}
+
+.modal-textarea { 
+    resize: vertical; 
+    min-height: 80px; 
+}
+
+.modal-input:focus, .modal-textarea:focus, .modal-select:focus { 
+    border-color: #6366f1; 
+}
+
+.modal-footer { 
+    padding: 1rem 1.5rem; 
+    background-color: white; 
+    border-top: 1px solid var(--border-color); 
+    display: flex; 
+    justify-content: center; 
+}
+
+.btn-create-bottom { 
+    background-color: white; 
+    border: 1px solid var(--border-color); 
+    padding: 0.5rem 2rem; 
+    border-radius: 0.5rem; 
+    font-weight: 600; 
+    cursor: pointer; 
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily&Quests - Ajuda</title>
+    <link rel="stylesheet" href="globalUI.css">
+    <link rel="stylesheet" href="styleInventario.css"> 
+    <link rel="stylesheet" href="styleAjuda.css">
+</head>
+<body>
+    
+    <nav class="top-nav">
+        <div class="nav-left">
+            <div class="nav-logo">
+                <img src="../Imgs/LogoDaily_Quests.png" alt="Logo">
+            </div>
+            <div class="nav-links">
+                <a class="nav-item" href="Homepage.html">Tarefas</a>
+                <a class="nav-item" href="Inventario.html">Inventário</a>
+                <a class="nav-item" href="Loja.html">Lojas</a>
+                <a class="nav-item active" href="Ajuda.html">Ajuda</a>
+            </div>
+        </div>
+        <div class="nav-stats">
+            <div class="stat-item" style="color: #fcd34d;">
+                <img src="../Imgs/barras-de-ouro.png" alt="Ouro" class="stat-icon">
+                <span id="gold-text">0</span>
+            </div>
+            <div class="stat-item" id="btn-notificacoes" style="cursor: pointer; position: relative;" title="Notificações">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="rgba(255,255,255,0.8)"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H10.5V18H4V8L12 13L20 8V12H22V6C22 4.9 21.1 4 20 4ZM12 11L4 6H20L12 11Z"/><path d="M19 14L14 22H24L19 14ZM19.5 20H18.5V19H19.5V20ZM19.5 18H18.5V16H19.5V18Z"/></svg>
+                <span id="badge-notificacao" style="display: none; position: absolute; top: -5px; right: -5px; background: #ef4444; width: 10px; height: 10px; border-radius: 50%;"></span>
+            </div>
+            <div class="stat-item" id="btn-usuario" style="cursor: pointer;" title="Perfil">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="rgba(255,255,255,0.8)"><path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z"/></svg>
+            </div>
+        </div>
+    </nav>
+
+    <header class="app-header">
+        <div class="header-left">
+            <div class="hero-avatar"><img src="../Imgs/Personagem-usuario.png" alt="Avatar"></div>
+            <div class="hero-info">
+                <h2 id="user-name-display">Carregando...</h2>
+                <p id="lvl-display">Nível 0</p>
+                <div class="bar-container">
+                    <img src="../Imgs/Life.png" alt="HP" class="bar-icon">
+                    <div class="bar-track"><div class="bar-fill hp-fill" id="hp-bar"></div></div>
+                    <span class="bar-text" id="hp-text">100 / 100</span>
+                </div>
+                <div class="bar-container">
+                    <img src="../Imgs/trofeu.png" alt="XP" class="bar-icon">
+                    <div class="bar-track"><div class="bar-fill xp-fill" id="xp-bar"></div></div>
+                    <span class="bar-text" id="xp-text">0 / 100</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container" style="justify-content: center;">
+        <section class="content-area faq-area">
+            <h1 class="faq-page-title">Perguntas Frequentes</h1>
+            <h2 class="faq-section-title">Dúvidas Comuns sobre o Daily&Quest</h2>
+
+            <div class="faq-list" id="faq-container">
+                </div>
+        </section>
+    </div>
+
+    <div class="global-dropdown" id="dropdown-notificacoes">
+        <div class="dropdown-header">
+            <h4>Notificações</h4>
+            <div class="dropdown-actions">
+                <button onclick="marcarNotificacoesLidas()">Ler Tudo</button>
+                <button onclick="limparNotificacoes()">Limpar</button>
+            </div>
+        </div>
+        <div class="dropdown-list" id="lista-notificacoes"></div>
+    </div>
+
+    <div class="global-dropdown" id="dropdown-usuario-menu">
+        <div class="dropdown-item" style="padding: 1rem; border-bottom: 1px solid var(--border-color); cursor:pointer;" onclick="abrirModalPerfil()">Meu Perfil</div>
+        <div class="dropdown-item" style="padding: 1rem; color: #ef4444; cursor:pointer;" onclick="deslogar()">Sair</div>
+    </div>
+
+    <div class="modal-overlay" id="modal-perfil">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>Meu Perfil</h3>
+                <div class="modal-header-actions">
+                    <span style="cursor: pointer;" onclick="fecharModalPerfil()">X</span>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div style="background-color: var(--nav-bg); color: white; padding: 1rem; border-radius: 0.5rem; margin-bottom: 1rem; text-align: center;">
+                    <h4 style="margin-bottom: 0.5rem; font-size: 1rem;">Status do Personagem</h4>
+                    <div style="display: flex; justify-content: space-around; font-size: 0.9rem;">
+                        <span><strong>Lvl:</strong> <span id="prof-lvl"></span></span>
+                        <span><strong>Ouro:</strong> <span id="prof-gold"></span></span>
+                        <span><strong>HP:</strong> <span id="prof-hp"></span>/100</span>
+                        <span><strong>XP:</strong> <span id="prof-xp"></span></span>
+                    </div>
+                </div>
+
+                <div class="modal-group">
+                    <label>Nome do Avatar (Exibido no Cabeçalho)</label>
+                    <input type="text" id="prof-avatar-name" class="modal-input">
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="modal-group">
+                        <label>Nome</label>
+                        <input type="text" id="prof-nome" class="modal-input">
+                    </div>
+                    <div class="modal-group">
+                        <label>Sobrenome</label>
+                        <input type="text" id="prof-sobrenome" class="modal-input">
+                    </div>
+                </div>
+                <div class="modal-group">
+                    <label>Email</label>
+                    <input type="email" id="prof-email" class="modal-input">
+                </div>
+                <div class="modal-group">
+                    <label>Idade</label>
+                    <input type="number" id="prof-idade" class="modal-input">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-create-bottom" onclick="salvarPerfil()">Salvar Alterações</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="globalUI.js"></script>
+    <script src="scriptAjuda.js"></script>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Persona 3 - Roberto Mendes</title>
+    <style>
+        /* RESET E FONTES */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #e5e7eb;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* ESTRUTURA DOS CARDS */
+        .card {
+            max-width: 1100px;
+            width: 100%;
+            background-color: #ffffff;
+            border-radius: 1rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            display: flex;
+            overflow: hidden;
+        }
+
+        /* Colunas */
+        .left-col {
+            width: 40%;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .right-col {
+            width: 60%;
+            padding: 3rem;
+            background-color: #ffffff;
+        }
+
+        /* Cores de Fundo Personalizadas */
+        .bg-yellow { background-color: #FDECA6; }
+
+        /* ELEMENTOS INTERNOS (ESQUERDA) */
+        .profile-img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            border-radius: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .name-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+        }
+
+        .info-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .pill {
+            border: 1px solid #000000;
+            border-radius: 9999px;
+            padding: 0.5rem 1.25rem;
+            font-size: 1rem;
+            color: #000000;
+        }
+
+        .pill strong { font-weight: 700; }
+        .pill-full { width: 100%; }
+
+        .bio-text {
+            color: #111827;
+            line-height: 1.6;
+            font-size: 1.125rem;
+        }
+
+        /* ELEMENTOS INTERNOS (DIREITA) */
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 400;
+            color: #000000;
+            margin-bottom: 2.5rem;
+        }
+
+        .detail-block {
+            background-color: #F4F5F0;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .block-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 1rem;
+        }
+
+        .detail-list {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            color: #1f2937;
+            line-height: 1.5;
+        }
+
+        .detail-list li { margin-bottom: 0.5rem; }
+
+        .list-label {
+            font-weight: 400;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+            margin-top: 1rem;
+            display: block;
+        }
+
+        /* RESPONSIVIDADE (Mobile) */
+        @media (max-width: 768px) {
+            .card { flex-direction: column; }
+            .left-col, .right-col { width: 100%; padding: 2rem; }
+            .name-title { font-size: 2.5rem; }
+            .profile-img { height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="left-col bg-yellow">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&auto=format&fit=crop" alt="Foto de Roberto" class="profile-img">
+            
+            <h1 class="name-title">Roberto Mendes</h1>
+            
+            <div class="info-pills">
+                <div class="pill"><strong>Idade:</strong> 36</div>
+                <div class="pill"><strong>Gênero:</strong> Masculino</div>
+                <div class="pill pill-full"><strong>Local:</strong> Belo Horizonte, MG</div>
+                <div class="pill pill-full"><strong>Ocupação:</strong> Analista Financeiro</div>
+            </div>
+
+            <p class="bio-text">
+                Roberto não tem TDAH, mas possui uma vida agitada dividida entre tarefas corporativas monótonas e a atenção à família. Ele sente que seus dias são repetitivos e busca uma ferramenta que transforme o ato de cumprir tarefas (como ler relatórios) em algo recompensador e visualmente divertido.
+            </p>
+        </div>
+
+        <div class="right-col">
+            <h2 class="section-title">Background</h2>
+
+            <div class="detail-block">
+                <h3 class="block-title">Características Pessoais</h3>
+                <ul class="detail-list">
+                    <li>Responsável e metódico no ambiente de trabalho</li>
+                    <li>Gosta de ver resultados claros de seu esforço</li>
+                    <li>Pai de família dedicado</li>
+                    <li>Cansaço mental no fim do expediente</li>
+                </ul>
+            </div>
+
+            <div class="detail-block">
+                <h3 class="block-title">Hobbies e Interesses</h3>
+                <ul class="detail-list">
+                    <li>Jogar futebol aos sábados de manhã</li>
+                    <li>Fazer churrasco com a família</li>
+                    <li>Ler livros de ficção científica</li>
+                    <li>Acompanhar finanças pessoais</li>
+                </ul>
+            </div>
+
+            <div class="detail-block">
+                <h3 class="block-title">Objetivos</h3>
+                <span class="list-label">Objetivos Principais:</span>
+                <ul class="detail-list">
+                    <li>Construir o hábito de fazer exercícios em casa</li>
+                    <li>Tornar tarefas do trabalho mais estimulantes</li>
+                    <li>Organizar afazeres domésticos de forma clara</li>
+                </ul>
+                <span class="list-label">Motivações:</span>
+                <ul class="detail-list">
+                    <li>Sentimento de dever cumprido ao final do dia</li>
+                    <li>Ser um bom exemplo de organização para os filhos</li>
+                </ul>
+            </div>
+
+            <div class="detail-block">
+                <h3 class="block-title">Desafios</h3>
+                <span class="list-label">Principais Dores:</span>
+                <ul class="detail-list">
+                    <li>Desmotivação crônica com tarefas repetitivas</li>
+                    <li>Sensação de trabalhar muito e não progredir</li>
+                </ul>
+                <span class="list-label">Frustrações:</span>
+                <ul class="detail-list">
+                    <li>Falta de energia após o trabalho para novos hábitos</li>
+                    <li>Planilhas normais não o motivam mais</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
